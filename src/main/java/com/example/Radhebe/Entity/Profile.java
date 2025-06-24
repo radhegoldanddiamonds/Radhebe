@@ -19,6 +19,7 @@ import java.util.UUID;
 public class Profile extends BaseEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 

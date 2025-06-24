@@ -2,9 +2,9 @@ package com.example.Radhebe.Entity;
 
 // UserType.java
 public enum UserType {
-    ADMIN("Admin"),
-    RETAILER("Retailer"),
-    WHOLESALER("Wholesaler");
+    Admin("Admin"),
+    Retailer("Retailer"),
+    Wholesaler("Wholesaler");
 
     private final String displayName;
 

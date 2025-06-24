@@ -29,6 +29,10 @@ public class CartService {
     public List<CartItem> getCartItemsByUser(UUID userId) {
         return cartItemRepository.findByUserIdOrderByAddedAtDesc(userId);
     }
+    public List<CartItem> getCartItems() {
+        return cartItemRepository.findAll();
+    }
+
 
     public CartItem addToCart(AddToCartRequest request) {
         // Validate that user and product exist

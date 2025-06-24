@@ -21,6 +21,12 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    @GetMapping
+    public ResponseEntity<List<CartItem>> getCartItems() {
+        List<CartItem> cartItems = cartService.getCartItems();
+        return ResponseEntity.ok(cartItems);
+    }
+
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<CartItem>> getUserCartItems(@PathVariable UUID userId) {
         List<CartItem> cartItems = cartService.getCartItemsByUser(userId);

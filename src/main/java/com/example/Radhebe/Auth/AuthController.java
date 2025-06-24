@@ -60,7 +60,7 @@ public class AuthController {
         profile.setPhoneNumber(signUpRequest.getPhoneNumber());
         profile.setShopName(signUpRequest.getShopName());
         profile.setVillage(signUpRequest.getVillage());
-        profile.setUserType(UserType.valueOf(signUpRequest.getUserType().toUpperCase()));
+        profile.setUserType(UserType.valueOf(signUpRequest.getUserType()));
 
         Profile result = profileRepository.save(profile);
 

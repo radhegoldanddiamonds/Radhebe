@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/profiles")
+@RequestMapping("/api/admin/users")
 @CrossOrigin(origins = "*")
 public class ProfileController {
 

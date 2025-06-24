@@ -25,4 +25,8 @@ public class ProductName extends BaseEntity {
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+
+    public ProductName(String name) {
+        this.name = name;
+    }
 }
