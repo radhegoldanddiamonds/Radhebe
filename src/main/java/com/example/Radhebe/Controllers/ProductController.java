@@ -1,6 +1,7 @@
 package com.example.Radhebe.Controllers;
 
 import com.example.Radhebe.DTO.CreateProductRequest;
+import com.example.Radhebe.DTO.ProductsResponse;
 import com.example.Radhebe.DTO.UpdateProductRequest;
 import com.example.Radhebe.Entity.Product;
 import com.example.Radhebe.Services.ProductService;
@@ -24,15 +25,15 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts(
+    public ResponseEntity <ProductsResponse> getAllProducts(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String model,
             @RequestParam(required = false) Boolean inStock,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(defaultValue = "20") int pageSize) {
 
-        Pageable pageable = PageRequest.of(page, size);
-        List<Product> products = productService.getProducts(name, model, inStock, pageable);
+        Pageable pageable = PageRequest.of(page, pageSize);
+        ProductsResponse products = productService.getProducts(name, model, inStock, pageable);
         return ResponseEntity.ok(products);
     }
 

@@ -1,6 +1,7 @@
 package com.example.Radhebe.Services;
 
 import com.example.Radhebe.DTO.CreateProductRequest;
+import com.example.Radhebe.DTO.ProductsResponse;
 import com.example.Radhebe.DTO.UpdateProductRequest;
 import com.example.Radhebe.Entity.Product;
 import com.example.Radhebe.Repository.ProductRepository;
@@ -22,7 +23,7 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<Product> getProducts(String name, String model, Boolean inStock, Pageable pageable) {
+    public  ProductsResponse getProducts(String name, String model, Boolean inStock, Pageable pageable) {
         Specification<Product> spec = Specification.where(null);
 
         if (name != null && !name.isEmpty()) {
@@ -43,7 +44,7 @@ public class ProductService {
         }
 
         Page<Product> page = productRepository.findAll(spec, pageable);
-        return page.getContent();
+        return ProductsResponse.builder().content(page.getContent()).totalElements(page.getTotalElements()).build();
     }
 
     public Product findById(UUID id) {

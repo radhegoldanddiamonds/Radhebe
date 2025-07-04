@@ -1,5 +1,6 @@
 package com.example.Radhebe.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +34,7 @@ public class ConversationRoom extends BaseEntity {
     private LocalDateTime lastMessageAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private Profile user;
 

@@ -1,5 +1,6 @@
 package com.example.Radhebe.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,18 +41,19 @@ public class CartItem extends BaseEntity {
     @Column(name = "needed_net_weight", precision = 10, scale = 3)
     private BigDecimal neededNetWeight;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private CartStatus status = CartStatus.PENDING;
+    private String status;
 
     @Column(name = "added_at", nullable = false)
     private LocalDateTime addedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private Profile user;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "product_id", insertable = false, updatable = false)
     private Product product;
 

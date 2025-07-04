@@ -53,4 +53,14 @@ public class ProfileController {
         Profile profile = profileService.updateProfile(id, request);
         return ResponseEntity.ok(profile);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProfile(@PathVariable UUID id) {
+
+        boolean deleted = profileService.deleteProfile(id);
+        if (deleted) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

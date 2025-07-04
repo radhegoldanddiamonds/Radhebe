@@ -57,7 +57,7 @@ public class CartService {
         cartItem.setQuantity(request.getQuantity());
         cartItem.setNeededGrossWeight(request.getNeededGrossWeight());
         cartItem.setNeededNetWeight(request.getNeededNetWeight());
-        cartItem.setStatus(CartStatus.PENDING);
+        cartItem.setStatus(CartStatus.PENDING.toString());
 
         return cartItemRepository.save(cartItem);
     }
@@ -69,7 +69,7 @@ public class CartService {
         if (request.getQuantity() != null) cartItem.setQuantity(request.getQuantity());
         if (request.getNeededGrossWeight() != null) cartItem.setNeededGrossWeight(request.getNeededGrossWeight());
         if (request.getNeededNetWeight() != null) cartItem.setNeededNetWeight(request.getNeededNetWeight());
-        if (request.getStatus() != null) cartItem.setStatus(CartStatus.valueOf(request.getStatus()));
+        if (request.getStatus() != null) cartItem.setStatus(request.getStatus().toUpperCase());
 
         return cartItemRepository.save(cartItem);
     }

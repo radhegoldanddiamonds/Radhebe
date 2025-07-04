@@ -48,9 +48,9 @@ public class Profile extends BaseEntity {
     @Column(name = "created_by")
     private UUID createdBy;
 
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CartItem> cartItems = new ArrayList<>();
-
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ConversationRoom> conversationRooms = new ArrayList<>();
+//    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<CartItem> cartItems = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<ConversationRoom> conversationRooms = new ArrayList<>();
 }

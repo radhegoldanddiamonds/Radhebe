@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -63,5 +64,14 @@ public class ProfileService {
         if (request.getUserType() != null) profile.setUserType(UserType.valueOf(request.getUserType()));
 
         return profileRepository.save(profile);
+    }
+    public boolean deleteProfile(UUID id) {
+
+        Optional<Profile> profile = profileRepository.findById(id);
+        if (profile.isPresent()) {
+            profileRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }
