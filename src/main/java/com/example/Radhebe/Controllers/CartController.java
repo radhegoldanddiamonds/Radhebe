@@ -10,7 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -48,8 +50,10 @@ public class CartController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> removeFromCart(@PathVariable UUID id) {
+    public ResponseEntity<Map<String, String>> removeFromCart(@PathVariable UUID id) {
         cartService.removeFromCart(id);
-        return ResponseEntity.noContent().build();
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Success!");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

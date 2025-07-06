@@ -57,6 +57,7 @@ public class CartService {
         cartItem.setQuantity(request.getQuantity());
         cartItem.setNeededGrossWeight(request.getNeededGrossWeight());
         cartItem.setNeededNetWeight(request.getNeededNetWeight());
+        cartItem.setIs_order(request.getIs_order());
         cartItem.setStatus(CartStatus.PENDING.toString());
 
         return cartItemRepository.save(cartItem);

@@ -25,5 +25,6 @@ public class AddToCartRequest {
 
     private BigDecimal neededGrossWeight;
     private BigDecimal neededNetWeight;
+    private Boolean is_order;
 }
 

@@ -26,14 +26,14 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity <ProductsResponse> getAllProducts(
-            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String productName,
             @RequestParam(required = false) String model,
             @RequestParam(required = false) Boolean inStock,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int pageSize) {
 
         Pageable pageable = PageRequest.of(page, pageSize);
-        ProductsResponse products = productService.getProducts(name, model, inStock, pageable);
+        ProductsResponse products = productService.getProducts(productName, model, inStock, pageable);
         return ResponseEntity.ok(products);
     }
 

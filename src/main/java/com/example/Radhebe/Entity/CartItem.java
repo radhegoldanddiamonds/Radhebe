@@ -44,6 +44,9 @@ public class CartItem extends BaseEntity {
     @Column(name = "status", nullable = false)
     private String status;
 
+    @Column(name= "is_order",nullable = false)
+    private  Boolean is_order;
+
     @Column(name = "added_at", nullable = false)
     private LocalDateTime addedAt;
 
